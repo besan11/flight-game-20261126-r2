@@ -1,0 +1,57 @@
+/* MERPATI — Island Airmail: HUD, title and debrief styling. Big, bold,
+high-contrast numbers that still read when the screenshot is shrunk. */
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #0b1026; }
+#scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+body { font-family: "Trebuchet MS", "Segoe UI", Verdana, sans-serif; color: #fff; }
+
+#hud { position: fixed; inset: 0; pointer-events: none; z-index: 5; text-shadow: 0 2px 4px rgba(0,0,0,.7); }
+.panel { background: rgba(8, 18, 34, .62); border: 2px solid rgba(255,255,255,.28); border-radius: 10px; padding: 8px 12px; }
+.label { font-size: 11px; letter-spacing: 2px; color: #ffd76a; font-weight: bold; }
+.value { font-size: 34px; font-weight: 900; line-height: 1; color: #fff; }
+.unit { font-size: 13px; color: #cfe8f5; font-weight: bold; }
+
+#hud-left { position: absolute; top: 14px; left: 14px; display: flex; gap: 10px; }
+#hud-right { position: absolute; top: 14px; right: 14px; display: flex; flex-direction: column; gap: 10px; width: 210px; }
+#hud-topcentre { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); text-align: center; }
+#hud-compass { display: flex; gap: 14px; justify-content: center; font-size: 17px; font-weight: 900; padding: 6px 16px; }
+#hud-compass .tick { color: #cfe8f5; opacity: .75; }
+#hud-compass .tick.centre { color: #ffd76a; opacity: 1; font-size: 20px; }
+#hud-sortie { margin-top: 6px; font-size: 15px; font-weight: 900; letter-spacing: 1px; color: #fff; }
+#hud-score-line { margin-top: 2px; font-size: 13px; font-weight: bold; color: #ffd76a; }
+#hud-wp { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); font-size: 20px; font-weight: 900; padding: 10px 18px; display: flex; gap: 12px; align-items: center; }
+#hud-wparrow { font-size: 26px; color: #ffd76a; display: inline-block; }
+.bar { height: 12px; background: rgba(255,255,255,.18); border-radius: 6px; overflow: hidden; margin-top: 5px; }
+.barfill { height: 100%; background: #58c96b; border-radius: 6px; transition: width .3s cubic-bezier(.22,1,.36,1); }
+.barfill.low { background: #ff5a3c; }
+#hud-thrbar { background: #ffd76a; }
+#hud-damage { color: #ff8a6a; font-weight: 900; font-size: 14px; min-height: 18px; }
+#hud-msg { position: absolute; top: 34%; left: 50%; transform: translateX(-50%); font-size: 24px; font-weight: 900; color: #ffd76a; background: rgba(8,18,34,.7); padding: 10px 22px; border-radius: 10px; border: 2px solid rgba(255,215,106,.6); display: none; }
+#hud-stall { position: absolute; top: 44%; left: 50%; transform: translateX(-50%); font-size: 34px; font-weight: 900; color: #ff3c2a; display: none; animation: blink .5s steps(2) infinite; }
+@keyframes blink { 50% { opacity: .2; } }
+#hud-help { position: absolute; bottom: 16px; left: 14px; font-size: 12px; color: #dfeefc; opacity: .85; line-height: 1.5; }
+
+/* Title screen over the live 3D scene. */
+.screen { position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; background: linear-gradient(180deg, rgba(6,12,28,.55), rgba(6,12,28,.25) 45%, rgba(6,12,28,.6)); transition: opacity .45s ease-in-out; }
+.screen-inner { text-align: center; max-width: 720px; padding: 28px 34px; background: rgba(8,18,34,.72); border: 3px solid rgba(255,215,106,.55); border-radius: 18px; }
+.game-title { font-size: 64px; font-weight: 900; letter-spacing: 6px; color: #ffd76a; line-height: 1; margin: 0; }
+.game-sub { font-size: 22px; font-weight: 900; letter-spacing: 4px; color: #fff; margin: 6px 0 14px; }
+#title-sortie-num { font-size: 14px; font-weight: 900; letter-spacing: 3px; color: #8fd0ff; }
+#title-sortie { font-size: 26px; font-weight: 900; margin: 4px 0 8px; }
+#title-brief { font-size: 17px; line-height: 1.5; color: #eaf4ff; margin: 0 0 16px; }
+.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 22px; text-align: left; font-size: 15px; margin: 0 auto 18px; max-width: 520px; }
+.controls b { color: #ffd76a; }
+.cta { font-size: 20px; font-weight: 900; color: #0b1026; background: #ffd76a; border: none; border-radius: 10px; padding: 12px 30px; cursor: pointer; animation: pulse 1.6s infinite; }
+@keyframes pulse { 50% { transform: scale(1.05); } }
+.fineprint { font-size: 12px; color: #b9d2ea; margin-top: 12px; }
+
+/* Debrief screen. */
+.debrief-grade { font-size: 92px; font-weight: 900; line-height: 1; }
+.grade-A { color: #58e07a; } .grade-B { color: #ffd76a; } .grade-C { color: #ff9a3c; } .grade-F { color: #ff3c2a; }
+.debrief-title { font-size: 26px; font-weight: 900; letter-spacing: 3px; margin-top: 4px; }
+.debrief-sub { font-size: 15px; color: #cfe8f5; margin: 6px 0 14px; }
+.debrief-table { margin: 0 auto; font-size: 17px; border-collapse: collapse; min-width: 420px; }
+.debrief-table td { padding: 4px 12px; text-align: left; }
+.debrief-table td:last-child { text-align: right; font-weight: 900; }
+.debrief-table tr.total td { border-top: 2px solid #ffd76a; font-size: 22px; color: #ffd76a; }
+.debrief-hint { margin-top: 16px; font-size: 15px; color: #ffd76a; font-weight: bold; }

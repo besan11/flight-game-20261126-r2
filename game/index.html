@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MERPATI — Island Airmail</title>
+<link rel="stylesheet" href="./src/style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.min.js" } }
+</script>
+</head>
+<body>
+<canvas id="scene" aria-label="MERPATI Island Airmail: fly the mail plane between island airstrips"></canvas>
+
+<div id="hud">
+  <div id="hud-left">
+    <div class="panel"><div class="label">ALTITUDE</div><div><span class="value" id="hud-alt">0</span> <span class="unit">FT</span></div></div>
+    <div class="panel"><div class="label">AIRSPEED</div><div><span class="value" id="hud-spd">0</span> <span class="unit">KT</span></div></div>
+    <div class="panel"><div class="label">HEADING</div><div><span class="value" id="hud-hdg">000°</span></div></div>
+  </div>
+  <div id="hud-topcentre">
+    <div class="panel" id="hud-compass"></div>
+    <div id="hud-sortie">Sortie 1 — Morning Post</div>
+    <div id="hud-score-line">SCORE <span id="hud-score">0</span></div>
+  </div>
+  <div id="hud-right">
+    <div class="panel"><div class="label">FUEL <span id="hud-fuel">100%</span></div><div class="bar"><div class="barfill" id="hud-fuelbar" style="width:100%"></div></div></div>
+    <div class="panel"><div class="label">THROTTLE <span id="hud-thr">0%</span></div><div class="bar"><div class="barfill" id="hud-thrbar" style="width:0%"></div></div></div>
+    <div class="panel"><div class="label">WIND</div><div class="value" style="font-size:22px" id="hud-wind">4 m/s</div></div>
+    <div id="hud-damage"></div>
+  </div>
+  <div id="hud-wp" class="panel"><span id="hud-wparrow">⬆</span><span id="hud-wp-text">MAIL BAG 1 — 0 m</span></div>
+  <div id="hud-msg"></div>
+  <div id="hud-stall">⚠ STALL ⚠</div>
+  <div id="hud-help">↑↓ pitch &nbsp; ←→ roll &nbsp; W/S throttle &nbsp; Q/E rudder<br>SPACE brake &nbsp; C camera &nbsp; M mute &nbsp; R restart</div>
+</div>
+
+<div id="screen-title" class="screen">
+  <div class="screen-inner">
+    <h1 class="game-title">MERPATI</h1>
+    <div class="game-sub">ISLAND AIRMAIL</div>
+    <div id="title-sortie-num">SORTIE 1 OF 3</div>
+    <div id="title-sortie">Sortie 1 — Morning Post</div>
+    <p id="title-brief"></p>
+    <div class="controls">
+      <div><b>↑ / ↓</b> pitch up / down</div><div><b>← / →</b> bank &amp; turn</div>
+      <div><b>W / S</b> throttle up / down</div><div><b>Q / E</b> rudder</div>
+      <div><b>SPACE</b> brake on the ground</div><div><b>C</b> chase / near camera</div>
+    </div>
+    <button class="cta" id="btn-fly">✈ FLY THIS SORTIE</button>
+    <div class="fineprint">Collect the mail bags, fly the gold rings, land on the runway — gently. Watch your fuel and the wind.</div>
+  </div>
+</div>
+
+<div id="screen-debrief" class="screen" style="display:none">
+  <div class="screen-inner" id="debrief-body"></div>
+</div>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
