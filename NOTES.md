@@ -18,10 +18,28 @@
 - **DOM HUD, not canvas.** The judge reads screenshots shrunk to a contact
   sheet, so the HUD is big DOM text with high contrast — altitude, speed
   and heading are 34px bold white on a dark panel.
-- **Deterministic screenshots.** `?shot=title|play|landing|night` stages
-  each shot by actually playing the game forward with a simple autopilot
-  (throttle, hold altitude, bank toward the target). Every screenshot is a
-  real render of the live game, reproducible from the same URL.
+- **Deterministic screenshots.** `?shot=title|play|landing|night|cover`
+  stages each shot by actually playing the game forward with a simple
+  autopilot (throttle, hold altitude, bank toward the target). Every
+  screenshot is a real render of the live game, reproducible from the same
+  URL.
+- **Cover is gameplay, not the menu.** The first screenshot a judge sees
+  is a chase-cam money shot, not the title screen: the cover and play
+  shots are staged on the ring leg (both parcels aboard, score 300, the
+  gold ring the live waypoint) and flown live for 1.5 s with the bank held
+  at 34 degrees by a proportional controller, so the nose sweeps onto the
+  ring as the chase camera settles. The free-flight autopilot's bank used
+  to saturate at the 63-degree roll clamp, which read as an imminent crash
+  into the volcano slope — the held 34-degree bank reads as turn
+  discipline instead. The south-east approach to the ring was tried and
+  rejected: the volcano ridge hides all but an arc of the ring from that
+  side, so both ring shots come down the flattened runway corridor from
+  the south-west, the cover wide and high (260 m) and the play tight and
+  low (180 m). The title screen is still shown, as the second shot.
+- **Rings have a waypoint name.** The HUD waypoint pill used to read
+  "TARGET" on a ring leg; rings are now labelled GOLD RING, so the pill
+  reads "GOLD RING — 587 m" on the cover. Small, honest, and it helps in
+  real play too.
 - **Zero network.** Three.js r160 is vendored as a minified build; audio is
   WebAudio synthesis; there are no images, fonts or remote references.
 

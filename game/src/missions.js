@@ -17,7 +17,7 @@ export const SORTIES = [
       { x: 1150, y: 200, z: -300, taken: false, label: 'MAIL BAG 2' },
     ],
     rings: [
-      { x: 980, y: 90, z: -560, r: 42, passed: false },
+      { x: 980, y: 90, z: -560, r: 42, passed: false, label: 'GOLD RING' },
     ],
     landAt: 1, // Api Strip
     landThen: 2, // then Kelapa Strip
@@ -34,7 +34,7 @@ export const SORTIES = [
       { x: -900, y: 110, z: 700, taken: false, label: 'NIGHT BAG 2' },
     ],
     rings: [
-      { x: -1150, y: 80, z: 640, r: 42, passed: false },
+      { x: -1150, y: 80, z: 640, r: 42, passed: false, label: 'GOLD RING' },
     ],
     landAt: 2,
     landThen: null,
@@ -51,8 +51,8 @@ export const SORTIES = [
       { x: -200, y: 160, z: 900, taken: false, label: 'HAUL BAG 2' },
     ],
     rings: [
-      { x: 980, y: 90, z: -560, r: 42, passed: false },
-      { x: -1150, y: 80, z: 640, r: 42, passed: false },
+      { x: 980, y: 90, z: -560, r: 42, passed: false, label: 'GOLD RING' },
+      { x: -1150, y: 80, z: 640, r: 42, passed: false, label: 'GOLD RING' },
     ],
     landAt: 1,
     landThen: 2,

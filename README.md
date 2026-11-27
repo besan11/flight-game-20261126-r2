@@ -69,7 +69,7 @@ under `game/` with no build step; Three.js is vendored at
 - `game/src/input.js` — keyboard and mouse input
 - `game/src/audio.js` — WebAudio synth sounds
 - `game/src/config.js` — every tuning number
-- `game/src/shots.js` — deterministic screenshot states (`?shot=title|play|landing|night`)
+- `game/src/shots.js` — deterministic screenshot states (`?shot=title|play|landing|night|cover`)
 - `main.ts` — hands the entry in: copies `game/` + `screenshots/` to
   `/output` and writes `dossier.json`
 
